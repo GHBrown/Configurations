@@ -116,10 +116,22 @@ if ! shopt -oq posix; then
   fi
 fi
 
+#Functions
+function cpb { #copy to buffer
+    cp -r "$1" ${CPBUFF}/
+    }
+function cpfb { #copy from buffer
+    cp -r ${CPBUFF}/* "$1"
+    rm -dfr ${CPBUFF}/*
+    }
+function srm {  #safe rm
+    mv "$@" ${RMBUFF}/
+    }
+
 #Aliases
 alias sourcebashrc='source ~/.bashrc'
-alias updateconfigs='mv ~/.bashrc ~/.emacs ~/Documents/Coding/Configurations/; mv ~/Documents/Coding/Vimium/vimium-options.json ~/Documents/Coding/Configurations/'
-alias clrtmp='rm -r ~/Temporary/*'
+alias updateconfigs='cp ~/.bashrc ~/.emacs ~/Documents/Coding/Configurations/; cp ~/Documents/Coding/Vimium/vimium-options.json ~/Documents/Coding/Configurations/'
+alias clrtmp='rm -dr ~/Temporary/*; mkdir ${CPBUFF} ${RMBUFF}'
 alias rmdup='rm *~'
 alias mv='mv -i'
 alias cp='cp -i'
@@ -128,16 +140,19 @@ alias cdtools='cd ~/Tools'
 alias cdjohnson='cd ${JOHNSON}'
 alias pdb2lmp='${TOOLS}/qmd-progress/build/changecoords'
 
+
+#Standard variables
+export CPBUFF=/home/ghbrown/Temporary/cpbuffer
+export RMBUFF=/home/ghbrown/Temporary/rmbuffer
+export JOHNSON=/home/ghbrown/Documents/Research/Johnson
 export PYTHONMODULES=/home/ghbrown/.local/lib/python3.8/site-packages
+export TOOLS=/home/ghbrown/Tools
 
 #Variables for computation
-export JOHNSON=/home/ghbrown/Documents/Research/Johnson
-export TOOLS=/home/ghbrown/Tools
 export BML_DIR=${TOOLS}/bml
 export PROGRESS_DIR=${TOOLS}/qmd-progress
 export LATTE_DIR=${TOOLS}/LATTE
 export LAMMPS_DIR=${TOOLS}/lammps
 export LMP_SERIAL=${LAMMPS_DIR}/src/lmp_serial
-export CPBUFF=/home/ghbrown/Temporary/cpbuffer
 #export LAMMPS_ARCH=g++_mpich_link_mine
 
