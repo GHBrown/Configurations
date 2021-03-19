@@ -1,0 +1,9 @@
+!Swap Caps_Lock and Alt_L
+!(starting from normal configuration)
+
+remove mod1 = Alt_L
+remove lock = Caps_Lock
+keycode 66 = Alt_L
+keycode 64 = Caps_Lock
+add mod1 = Alt_L
+add lock = Caps_Lock
