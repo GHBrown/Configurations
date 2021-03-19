@@ -5,6 +5,8 @@
 (require 'evil)
 (evil-mode 1)
 
+(ido-mode 1)
+
 ;figure out how to configure evil-vimish-fold to work with z keybindings
 
 (ac-config-default)
@@ -17,13 +19,7 @@
 (set-face-foreground 'linum "white")
 (setq linum-format "%3d \u2502")
 
-(global-set-key [remap save-buffers-kill-terminal] 'swapback-save-buffers-kill-terminal)
-
-(defun swapback-save-buffers-kill-terminal ()
-  (interactive)
-  (shell-command "xmodmap ~/.swapback")
-  (save-buffers-kill-terminal)
-  )
+(global-set-key (kbd "C-c t") 'transpose-frame)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -32,7 +28,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (0blayout 0xc auto-complete auto-complete-auctex auto-complete-c-headers auto-complete-chunk auto-complete-clang auto-complete-clang-async auto-complete-distel auto-complete-exuberant-ctags auto-complete-nxml auto-complete-pcmp auto-complete-rst evil))))
+    (transpose-frame auto-complete auto-complete-auctex auto-complete-c-headers auto-complete-chunk auto-complete-clang auto-complete-clang-async auto-complete-distel auto-complete-exuberant-ctags auto-complete-nxml auto-complete-pcmp auto-complete-rst evil))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -117,9 +117,11 @@ if ! shopt -oq posix; then
 fi
 
 #Functions
+shopt -s dotglob #considers files beginning with . in cp and rm etc.
 function cpb { #copy to buffer
-    cp -r "$1" ${CPBUFF}/
+    cp -r "$@" ${CPBUFF}/
     }
+
 function cpfb { #copy from buffer
     cp -r ${CPBUFF}/* "$1"
     rm -dfr ${CPBUFF}/*
@@ -127,19 +129,25 @@ function cpfb { #copy from buffer
 function srm {  #safe rm
     mv "$@" ${RMBUFF}/
     }
+function scpcc { #ssh copy to campus cluster
+    toCopy=${*%${!#}} #all arguments but the last
+    destination=${@:$#} #only the last argument
+    scp -r ${toCopy} ghbrown3@cc-xfer.campuscluster.illinois.edu:${destination}
+    }
+function sshcc { #login to campus cluster
+    ssh ghbrown3@cc-login.campuscluster.illinois.edu
+}
 
-#Aliases
+#Standard aliases
 alias sourcebashrc='source ~/.bashrc'
 alias updateconfigs='cp ~/.bashrc ~/.emacs ~/Documents/Coding/Configurations/; cp ~/Documents/Coding/Vimium/vimium-options.json ~/Documents/Coding/Configurations/'
 alias clrtmp='rm -dr ~/Temporary/*; mkdir ${CPBUFF} ${RMBUFF}'
 alias rmdup='rm *~'
 alias mv='mv -i'
 alias cp='cp -i'
-alias emacs='xmodmap ~/.swap; emacs -nw'
-alias cdtools='cd ~/Tools'
+alias emacs='emacs -nw'
+alias cdtools='cd ${TOOLS}'
 alias cdjohnson='cd ${JOHNSON}'
-alias pdb2lmp='${TOOLS}/qmd-progress/build/changecoords'
-
 
 #Standard variables
 export CPBUFF=/home/ghbrown/Temporary/cpbuffer
@@ -147,6 +155,11 @@ export RMBUFF=/home/ghbrown/Temporary/rmbuffer
 export JOHNSON=/home/ghbrown/Documents/Research/Johnson
 export PYTHONMODULES=/home/ghbrown/.local/lib/python3.8/site-packages
 export TOOLS=/home/ghbrown/Tools
+
+
+#Aliases for computation
+alias pdb2lmp='${TOOLS}/qmd-progress/build/changecoords'
+alias skf2dat='python3 ${LATTE_DIR}/tools/DLtab/DLtab.py'
 
 #Variables for computation
 export BML_DIR=${TOOLS}/bml
