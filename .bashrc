@@ -141,13 +141,9 @@ function updateconfigs { #updates GitHub with all configuration files (.bashrc, 
 	(cd ${CONFIGURATIONS};\
 	cp ~/.bashrc ~/.emacs ${CONFIGURATIONS};\
        	cp ~/Documents/Coding/Vimium/vimium-options.json ${CONFIGURATIONS};\
-	echo "after cps";\
 	git add .;\
-	echo "after add";\
-	git commit -m "Automatically updated all configurations.";\
-	echo "after commit";\
+	git commit -m "Scripted update.";\
 	git push; \
-	echo "after push";\
 )
 }
 function zadig { #fixed drivers for GameCube controller and Slippi

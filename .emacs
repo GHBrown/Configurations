@@ -7,7 +7,8 @@
 
 (ido-mode 1)
 
-;figure out how to configure evil-vimish-fold to work with z keybindings
+(add-hook 'prog-mode-hook #'hs-minor-mode) ;enable hideshow mode globally for code folding
+;maybe remap za etc. to more intuitive keys?
 
 (ac-config-default)
 (global-auto-complete-mode t)
@@ -29,7 +30,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (transpose-frame auto-complete auto-complete-auctex auto-complete-c-headers auto-complete-chunk auto-complete-clang auto-complete-clang-async auto-complete-distel auto-complete-exuberant-ctags auto-complete-nxml auto-complete-pcmp auto-complete-rst evil))))
+    (evil-vimish-fold transpose-frame auto-complete auto-complete-auctex auto-complete-c-headers auto-complete-chunk auto-complete-clang auto-complete-clang-async auto-complete-distel auto-complete-exuberant-ctags auto-complete-nxml auto-complete-pcmp auto-complete-rst evil))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
