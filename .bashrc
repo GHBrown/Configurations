@@ -137,19 +137,30 @@ function scpcc { #ssh copy to campus cluster
 function sshcc { #login to campus cluster
     ssh ghbrown3@cc-login.campuscluster.illinois.edu
 }
+function updateconfigs { #updates GitHub with all configuration files (.bashrc, etc.)
+	(cd ${CONFIGURATIONS};
+	cp ~/.bashrc ~/.emacs ${CONFIGURATIONS}; \
+       	cp ~/Documents/Coding/Vimium/vimium-options.json ${CONFIGURATIONS}; \
+	git add .; \
+	git commit -m "Automatically updated all configurations."; \
+	git push;)
+}
+function zadig { #fixed drivers for GameCube controller and Slippi
+	sudo rm -f /etc/udev/rules.d/51-gcadapter.rules && sudo touch /etc/udev/rules.d/50-gcadapter.rules && echo 'SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="0337", MODE="0666"' | sudo tee /etc/udev/rules.d/51-gcadapter.rules > /dev/null && sudo udevadm control --reload-rules
+}
 
 #Standard aliases
 alias sourcebashrc='source ~/.bashrc'
-alias updateconfigs='cp ~/.bashrc ~/.emacs ~/Documents/Coding/Configurations/; cp ~/Documents/Coding/Vimium/vimium-options.json ~/Documents/Coding/Configurations/'
 alias clrtmp='rm -dr ~/Temporary/*; mkdir ${CPBUFF} ${RMBUFF}'
 alias rmdup='rm *~'
 alias mv='mv -i'
 alias cp='cp -i'
-alias emacs='emacs -nw'
+alias emacs='emacs -nw; xmodmap .swapAlt_CAPSLOCK'
 alias cdtools='cd ${TOOLS}'
 alias cdjohnson='cd ${JOHNSON}'
 
 #Standard variables
+export CONFIGURATIONS=/home/ghbrown/Documents/Coding/Configurations
 export CPBUFF=/home/ghbrown/Temporary/cpbuffer
 export RMBUFF=/home/ghbrown/Temporary/rmbuffer
 export JOHNSON=/home/ghbrown/Documents/Research/Johnson

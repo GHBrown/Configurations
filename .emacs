@@ -20,6 +20,7 @@
 (setq linum-format "%3d \u2502")
 
 (global-set-key (kbd "C-c t") 'transpose-frame)
+(global-set-key (kbd "C-c s") 'rotate-frame)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
