@@ -138,12 +138,17 @@ function sshcc { #login to campus cluster
     ssh ghbrown3@cc-login.campuscluster.illinois.edu
 }
 function updateconfigs { #updates GitHub with all configuration files (.bashrc, etc.)
-	(cd ${CONFIGURATIONS};
-	cp ~/.bashrc ~/.emacs ${CONFIGURATIONS}; \
-       	cp ~/Documents/Coding/Vimium/vimium-options.json ${CONFIGURATIONS}; \
-	git add .; \
-	git commit -m "Automatically updated all configurations."; \
-	git push;)
+	(cd ${CONFIGURATIONS};\
+	cp ~/.bashrc ~/.emacs ${CONFIGURATIONS};\
+       	cp ~/Documents/Coding/Vimium/vimium-options.json ${CONFIGURATIONS};\
+	echo "after cps";\
+	git add .;\
+	echo "after add";\
+	git commit -m "Automatically updated all configurations.";\
+	echo "after commit";\
+	git push; \
+	echo "after push";\
+)
 }
 function zadig { #fixed drivers for GameCube controller and Slippi
 	sudo rm -f /etc/udev/rules.d/51-gcadapter.rules && sudo touch /etc/udev/rules.d/50-gcadapter.rules && echo 'SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="0337", MODE="0666"' | sudo tee /etc/udev/rules.d/51-gcadapter.rules > /dev/null && sudo udevadm control --reload-rules
@@ -152,7 +157,7 @@ function zadig { #fixed drivers for GameCube controller and Slippi
 #Standard aliases
 alias sourcebashrc='source ~/.bashrc'
 alias clrtmp='rm -dr ~/Temporary/*; mkdir ${CPBUFF} ${RMBUFF}'
-alias rmdup='rm *~'
+alias rmdup='srm *~'
 alias mv='mv -i'
 alias cp='cp -i'
 alias emacs='emacs -nw; xmodmap .swapAlt_CAPSLOCK'
