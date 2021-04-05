@@ -156,7 +156,7 @@ alias clrtmp='rm -dr ~/Temporary/*; mkdir ${CPBUFF} ${RMBUFF}'
 alias rmdup='srm *~'
 alias mv='mv -i'
 alias cp='cp -i'
-alias emacs='emacs -nw; xmodmap .swapAlt_CAPSLOCK'
+alias emacs='xmodmap .swapAlt_CAPSLOCK; emacs -nw'
 alias cdtools='cd ${TOOLS}'
 alias cdjohnson='cd ${JOHNSON}'
 
