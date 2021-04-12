@@ -128,7 +128,7 @@ function cpfb { #copy from buffer
     }
 function huion { #set up buttons for Huion 610P
 	#STYLUS, buttom numbers: 2 (lower), 3 (upper)
-		xsetwacom --set 'HUION Huion Tablet Pen stylus' Button 2 "key -ctrl" #set lower button as color sampler
+		xsetwacom --set 'HUION Huion Tablet Pen stylus' Button 2 "key +ctrl" #set lower button as color sampler
 
 	#TABLET, button numbers (top to bottom): 1,2,3,8,9,10,11,12
 		xsetwacom --set "HUION Huion Tablet Pad pad" Button 1 "key +ctrl +z -z -ctrl" #set undo
