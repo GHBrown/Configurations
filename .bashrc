@@ -126,6 +126,21 @@ function cpfb { #copy from buffer
     cp -r ${CPBUFF}/* "$1"
     rm -dfr ${CPBUFF}/*
     }
+function huion { #set up buttons for Huion 610P
+	#STYLUS, buttom numbers: 2 (lower), 3 (upper)
+		xsetwacom --set 'HUION Huion Tablet Pen stylus' Button 2 "key -ctrl" #set lower button as color sampler
+
+	#TABLET, button numbers (top to bottom): 1,2,3,8,9,10,11,12
+		xsetwacom --set "HUION Huion Tablet Pad pad" Button 1 "key +ctrl +z -z -ctrl" #set undo
+		xsetwacom --set "HUION Huion Tablet Pad pad" Button 2 "key +E -E" #set eraser mode
+		xsetwacom --set "HUION Huion Tablet Pad pad" Button 3 "key +B -B" #set freehand brush
+		xsetwacom --set "HUION Huion Tablet Pad pad" Button 8 "key +ctrl +space" #set zoom by drag
+		xsetwacom --set "HUION Huion Tablet Pad pad" Button 9 "key +space" #set pan by drag
+		xsetwacom --set "HUION Huion Tablet Pad pad" Button 10 "key +shift" #set change brush size by drag
+		#xsetwacom --set "HUION Huion Tablet Pad pad" Button 11 "key "
+		#xsetwacom --set "HUION Huion Tablet Pad pad" Button 12 "key "
+	
+    }
 function srm {  #safe rm
     mv "$@" ${RMBUFF}/
     }
