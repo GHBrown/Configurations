@@ -116,8 +116,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
-#Functions
 shopt -s dotglob #considers files beginning with . in cp and rm etc.
+
+#Functions
 function cpb { #copy to buffer
     cp -r "$@" ${CPBUFF}/
     }
@@ -142,7 +143,7 @@ function huion { #set up buttons for Huion 610P
 	
     }
 function srm {  #safe rm
-    mv "$@" ${RMBUFF}/
+    mv -f --backup=t "$@" ${RMBUFF}/
     }
 function scpcc { #ssh copy to campus cluster
     toCopy=${*%${!#}} #all arguments but the last
@@ -171,15 +172,17 @@ alias clrtmp='rm -dr ~/Temporary/*; mkdir ${CPBUFF} ${RMBUFF}'
 alias rmdup='srm *~'
 alias mv='mv -i'
 alias cp='cp -i'
-alias emacs='xmodmap .swapAlt_CAPSLOCK; emacs -nw'
 alias cdtools='cd ${TOOLS}'
 alias cdjohnson='cd ${JOHNSON}'
+alias cdsolomonik='cd ${SOLOMONIK}'
+alias emacs='(cd $HOME; xmodmap .swapAlt_CAPSLOCK); emacs -nw'
 
 #Standard variables
 export CONFIGURATIONS=/home/ghbrown/Documents/Coding/Configurations
 export CPBUFF=/home/ghbrown/Temporary/cpbuffer
 export RMBUFF=/home/ghbrown/Temporary/rmbuffer
 export JOHNSON=/home/ghbrown/Documents/Research/Johnson
+export SOLOMONIK=/home/ghbrown/Documents/Research/Solomonik
 export PYTHONMODULES=/home/ghbrown/.local/lib/python3.8/site-packages
 export TOOLS=/home/ghbrown/Tools
 
