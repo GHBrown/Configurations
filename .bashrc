@@ -120,12 +120,12 @@ shopt -s dotglob #considers files beginning with . in cp and rm etc.
 
 #Functions
 function cpb { #copy to buffer
+    rm -dfr ${CPBUFF}/*
     cp -r "$@" ${CPBUFF}/
     }
 
 function cpfb { #copy from buffer
     cp -r ${CPBUFF}/* "$1"
-    rm -dfr ${CPBUFF}/*
     }
 function huion { #set up buttons for Huion 610P
 	#STYLUS, buttom numbers: 2 (lower), 3 (upper)
@@ -152,19 +152,19 @@ function scpcc { #ssh copy to campus cluster
     }
 function sshcc { #login to campus cluster
     ssh ghbrown3@cc-login.campuscluster.illinois.edu
-}
+    }
 function updateconfigs { #updates GitHub with all configuration files (.bashrc, etc.)
-	(cd ${CONFIGURATIONS};\
-	cp ~/.bashrc ~/.emacs ${CONFIGURATIONS};\
-       	cp ~/Documents/Coding/Vimium/vimium-options.json ${CONFIGURATIONS};\
-	git add .;\
-	git commit -m "Scripted update.";\
-	git push; \
-)
-}
+    (cd ${CONFIGURATIONS};\
+    cp ~/.bashrc ~/.emacs ${CONFIGURATIONS};\
+    cp ~/Documents/Coding/Vimium/vimium-options.json ${CONFIGURATIONS};\
+    git add .;\
+    git commit -m "Scripted update.";\
+    git push; \
+    )
+    }
 function zadig { #fixed drivers for GameCube controller and Slippi
-	sudo rm -f /etc/udev/rules.d/51-gcadapter.rules && sudo touch /etc/udev/rules.d/50-gcadapter.rules && echo 'SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="0337", MODE="0666"' | sudo tee /etc/udev/rules.d/51-gcadapter.rules > /dev/null && sudo udevadm control --reload-rules
-}
+    sudo rm -f /etc/udev/rules.d/51-gcadapter.rules && sudo touch /etc/udev/rules.d/50-gcadapter.rules && echo 'SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="0337", MODE="0666"' | sudo tee /etc/udev/rules.d/51-gcadapter.rules > /dev/null && sudo udevadm control --reload-rules
+    }
 
 #Standard aliases
 alias sourcebashrc='source ~/.bashrc'
@@ -186,7 +186,6 @@ export SOLOMONIK=/home/ghbrown/Documents/Research/Solomonik
 export PYTHONMODULES=/home/ghbrown/.local/lib/python3.8/site-packages
 export TOOLS=/home/ghbrown/Tools
 
-
 #Aliases for computation
 alias pdb2lmp='${TOOLS}/qmd-progress/build/changecoords'
 alias skf2dat='python3 ${LATTE_DIR}/tools/DLtab/DLtab.py'
@@ -195,6 +194,7 @@ alias skf2dat='python3 ${LATTE_DIR}/tools/DLtab/DLtab.py'
 export BML_DIR=${TOOLS}/bml
 export PROGRESS_DIR=${TOOLS}/qmd-progress
 export LATTE_DIR=${TOOLS}/LATTE
+export LATTEDOUBLE=${LATTE_DIR}/LATTE_DOUBLE
 export LAMMPS_DIR=${TOOLS}/lammps
 export LMP_SERIAL=${LAMMPS_DIR}/src/lmp_serial
 #export LAMMPS_ARCH=g++_mpich_link_mine
