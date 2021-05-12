@@ -154,7 +154,7 @@ function sshcc { #login to campus cluster
     ssh ghbrown3@cc-login.campuscluster.illinois.edu
     }
 function updateconfigs { #updates GitHub with all configuration files (.bashrc, etc.)
-    sudo dpkg --get-selections > ~/.applicationNameBackup.txt;\
+    dpkg --get-selections > ~/.applicationNameBackup.txt;\
     cp ~/.applicationNameBackup.txt ${CONFIGURATIONS};\
     cp ~/.bashrc ~/.emacs ${CONFIGURATIONS};\
     cp ~/Documents/Coding/Vimium/vimium-options.json ${CONFIGURATIONS};\
