@@ -155,9 +155,9 @@ function sshcc { #login to campus cluster
     }
 function updateconfigs { #updates GitHub with all configuration files (.bashrc, etc.)
     dpkg --get-selections > ~/.applicationNameBackup.txt;\
-    cp ~/.applicationNameBackup.txt ${CONFIGURATIONS};\
-    cp ~/.bashrc ~/.emacs ${CONFIGURATIONS};\
-    cp ~/Documents/Coding/Vimium/vimium-options.json ${CONFIGURATIONS};\
+    cp -f ~/.applicationNameBackup.txt ${CONFIGURATIONS};\
+    cp -f ~/.bashrc ~/.emacs ${CONFIGURATIONS};\
+    cp -f ~/Documents/Coding/Vimium/vimium-options.json ${CONFIGURATIONS};\
     (cd ${CONFIGURATIONS};\
     git add .;\
     git commit -m "Scripted update.";\
