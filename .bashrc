@@ -154,15 +154,17 @@ function sshcc { #login to campus cluster
     ssh ghbrown3@cc-login.campuscluster.illinois.edu
     }
 function updateconfigs { #updates GitHub with all configuration files (.bashrc, etc.)
-    (cd ${CONFIGURATIONS};\
+    sudo dpkg --get-selections > ~/.applicationNameBackup.txt;\
+    cp ~/.applicationNameBackup.txt ${CONFIGURATIONS};\
     cp ~/.bashrc ~/.emacs ${CONFIGURATIONS};\
     cp ~/Documents/Coding/Vimium/vimium-options.json ${CONFIGURATIONS};\
+    (cd ${CONFIGURATIONS};\
     git add .;\
     git commit -m "Scripted update.";\
-    git push; \
+    git push;\
     )
     }
-function zadig { #fixed drivers for GameCube controller and Slippi
+function zadig { #fix drivers for GameCube controller and Slippi
     sudo rm -f /etc/udev/rules.d/51-gcadapter.rules && sudo touch /etc/udev/rules.d/50-gcadapter.rules && echo 'SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="0337", MODE="0666"' | sudo tee /etc/udev/rules.d/51-gcadapter.rules > /dev/null && sudo udevadm control --reload-rules
     }
 
