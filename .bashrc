@@ -171,9 +171,10 @@ function zadig { #fix drivers for GameCube controller and Slippi
 #Standard aliases
 alias sourcebashrc='source ~/.bashrc'
 alias clrtmp='rm -dr ~/Temporary/*; mkdir ${CPBUFF} ${RMBUFF}'
-alias rmdup='srm *~'
+alias srmdup='srm *~'
 alias mv='mv -i'
 alias cp='cp -i'
+alias cls='clear; ls'
 alias cdtools='cd ${TOOLS}'
 alias cdjohnson='cd ${JOHNSON}'
 alias cdsolomonik='cd ${SOLOMONIK}'
