@@ -218,5 +218,12 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+#set conda environment to my standard
 source activate std
+
+#clear prompt and provide ls output at top of prompt
+cls
+
+
+
 
