@@ -94,7 +94,7 @@ cdrdao						install
 cheese-common					install
 chktex						install
 chrome-gnome-shell				install
-chromium					install
+chromium					deinstall
 chromium-common					install
 chromium-sandbox				install
 cm-super					deinstall
@@ -150,6 +150,7 @@ dc						install
 dconf-cli					install
 dconf-gsettings-backend:amd64			install
 dconf-service					install
+dctrl-tools					install
 debconf						install
 debconf-i18n					install
 debiandoc-sgml					deinstall
@@ -167,6 +168,7 @@ dictionaries-common				install
 diffutils					install
 dirmngr						install
 discord						install
+distro-info					install
 distro-info-data				install
 dkms						install
 dleyna-server					install
@@ -226,7 +228,7 @@ file						install
 file-roller					install
 finalrd						install
 findutils					install
-firefox						install
+firefox						deinstall
 firefox-locale-ar				install
 firefox-locale-de				install
 firefox-locale-en				install
@@ -1449,6 +1451,7 @@ libjaxen-java					install
 libjaxp1.3-java					install
 libjbig0:amd64					install
 libjbig2dec0:amd64				install
+libjcat1:amd64					install
 libjcode-pm-perl				install
 libjctools-java					install
 libjdepend-java					install
@@ -2454,13 +2457,18 @@ lilypond-doc-pdf				install
 linux-base					install
 linux-firmware					install
 linux-generic					install
+linux-headers-5.11.0-7614			install
+linux-headers-5.11.0-7614-generic		install
 linux-headers-5.8.0-7630			install
 linux-headers-5.8.0-7630-generic		install
 linux-headers-generic				install
+linux-image-5.11.0-7614-generic			install
 linux-image-5.8.0-7630-generic			install
 linux-image-generic				install
 linux-libc-dev:amd64				install
+linux-modules-5.11.0-7614-generic		install
 linux-modules-5.8.0-7630-generic		install
+linux-modules-extra-5.11.0-7614-generic		install
 linux-modules-extra-5.8.0-7630-generic		install
 linux-sound-base				install
 linux-system76					install
