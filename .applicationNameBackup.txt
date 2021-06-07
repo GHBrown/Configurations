@@ -53,6 +53,8 @@ autotools-dev					install
 avahi-autoipd					install
 avahi-daemon					install
 avahi-utils					install
+avogadro					install
+avogadro-utils					install
 baobab						install
 base-files					install
 base-passwd					install
@@ -95,8 +97,6 @@ cheese-common					install
 chktex						install
 chrome-gnome-shell				install
 chromium					deinstall
-chromium-common					install
-chromium-sandbox				install
 cm-super					deinstall
 cm-super-minimal				deinstall
 cmake						install
@@ -884,6 +884,7 @@ libavc1394-0:amd64				install
 libavcodec58:amd64				install
 libavfilter7:amd64				install
 libavformat58:amd64				install
+libavogadro2-1:amd64				install
 libavresample4:amd64				install
 libavutil56:amd64				install
 libb-hooks-endofscope-perl			install
@@ -2007,7 +2008,6 @@ libraw1394-11:amd64				install
 libraw19:amd64					install
 librdf0:amd64					install
 librdmacm1:amd64				install
-libre2-5:amd64					install
 libreadline5:amd64				install
 libreadline8:amd64				install
 libreadonly-perl				install
@@ -2179,6 +2179,7 @@ libsuperlu5:amd64				install
 libsvg-perl					install
 libswresample3:amd64				install
 libswscale5:amd64				install
+libsymspg1:amd64				install
 libsynctex2:amd64				install
 libsys-hostname-long-perl			install
 libsystemd0:amd64				install
@@ -2230,7 +2231,6 @@ libtry-tiny-perl				install
 libtsan0:amd64					install
 libtss2-esys0					install
 libtwolame0:amd64				install
-libu2f-udev					install
 libubsan1:amd64					install
 libuchardet0:amd64				install
 libudev1:amd64					install

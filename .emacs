@@ -8,7 +8,6 @@
 (ido-mode 1)
 
 (add-hook 'prog-mode-hook #'hs-minor-mode) ;enable hideshow mode globally for code folding
-;maybe remap za etc. to more intuitive keys?
 
 (ac-config-default)
 (global-auto-complete-mode t)
@@ -22,6 +21,8 @@
 
 (global-set-key (kbd "C-c t") 'transpose-frame)
 (global-set-key (kbd "C-c s") 'rotate-frame)
+
+(add-to-list 'auto-mode-alist '("\\.fypp\\'" . f90-mode))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
