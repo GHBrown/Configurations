@@ -142,6 +142,9 @@ function huion { #set up buttons for Huion 610P
 		#xsetwacom --set "HUION Huion Tablet Pad pad" Button 12 "key "
 	
     }
+function swap_alt_caps {
+    (cd $HOME; xmodmap .swapAlt_CAPSLOCK)
+    }
 function srm {  #safe rm
     mv -f --backup=t "$@" ${RMBUFF}/
     }
@@ -178,7 +181,7 @@ alias cls='clear; ls'
 alias cdtools='cd ${TOOLS}'
 alias cdjohnson='cd ${JOHNSON}'
 alias cdsolomonik='cd ${SOLOMONIK}'
-alias emacs='(cd $HOME; xmodmap .swapAlt_CAPSLOCK); emacs -nw'
+alias emacs='emacs -nw'
 
 #Standard variables
 export CONFIGURATIONS=/home/ghbrown/Documents/Coding/Configurations
@@ -218,11 +221,15 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+#PROCESSES TO RUN
 #set conda environment to my standard
 source activate std
 
 #clear prompt and provide ls output at top of prompt
-cls
+cls 
+
+#swap Alt and CAPLOCK
+swap_alt_caps
 
 
 
