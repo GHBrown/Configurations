@@ -2,7 +2,13 @@
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
 
+(global-auto-revert-mode t)
+
+(setq evil-want-integration t) ;optional since already set to t by default
+(setq evil-want-keybinding nil)
 (require 'evil)
+(when (require 'evil-collection nil t)
+  (evil-collection-init))
 (evil-mode 1)
 
 (ido-mode 1)
@@ -31,7 +37,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (chapel-mode evil-vimish-fold transpose-frame auto-complete auto-complete-auctex auto-complete-c-headers auto-complete-chunk auto-complete-clang auto-complete-clang-async auto-complete-distel auto-complete-exuberant-ctags auto-complete-nxml auto-complete-pcmp auto-complete-rst evil))))
+    (evil-collection magit chapel-mode evil-vimish-fold transpose-frame auto-complete auto-complete-auctex auto-complete-c-headers auto-complete-chunk auto-complete-clang auto-complete-clang-async auto-complete-distel auto-complete-exuberant-ctags auto-complete-nxml auto-complete-pcmp auto-complete-rst evil))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
