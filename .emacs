@@ -1,3 +1,4 @@
+;; REQUIRE PACKAGES AND CONFIGURE THEM
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
@@ -14,21 +15,27 @@
 (ido-mode 1)
 
 (add-hook 'prog-mode-hook #'hs-minor-mode) ;enable hideshow mode globally for code folding
+(add-to-list 'auto-mode-alist '("\\.fypp\\'" . f90-mode)) ; display .fypp files like .f90 files
 
 (ac-config-default)
 (global-auto-complete-mode t)
-(define-key ac-completing-map [return] nil)
+
+;; REMAP MODE KEYS
+(define-key ac-completing-map [return] nil) ;unmap ENTER for autocomplete
 (define-key ac-completing-map "\r" nil)
 
+;; CHANGE AESTHETIC
 (load-theme 'wombat)
 (global-linum-mode t)
 (set-face-foreground 'linum "white")
 (setq linum-format "%3d \u2502")
 
+;; CNTRL-C SHORTCUTS
 (global-set-key (kbd "C-c t") 'transpose-frame)
 (global-set-key (kbd "C-c s") 'rotate-frame)
 
-(add-to-list 'auto-mode-alist '("\\.fypp\\'" . f90-mode))
+;; STARTUP
+; nothing yet
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
