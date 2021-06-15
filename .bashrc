@@ -174,10 +174,11 @@ function zadig { #fix drivers for GameCube controller and Slippi
 #Standard aliases
 alias sourcebashrc='source ~/.bashrc'
 alias clrtmp='rm -dr ~/Temporary/*; mkdir ${CPBUFF} ${RMBUFF}'
-alias srmdup='srm *~'
 alias mv='mv -i'
 alias cp='cp -i'
+alias srmdup='srm *~'
 alias cls='clear; ls'
+alias cdd='cd ..'
 alias cdtools='cd ${TOOLS}'
 alias cdjohnson='cd ${JOHNSON}'
 alias cdsolomonik='cd ${SOLOMONIK}'
@@ -221,11 +222,11 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-#PROCESSES TO RUN
-#set conda environment to my standard
+#---PROCESSES TO RUN---
+#set conda environment to my standard env
 source activate std
 
-#clear prompt and provide ls output at top of prompt
+#clear prompt and provide ls output
 cls 
 
 #swap Alt and CAPLOCK
