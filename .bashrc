@@ -148,14 +148,6 @@ function swap_alt_caps {
 function srm {  #safe rm
     mv -f --backup=t "$@" ${RMBUFF}/
     }
-function scpcc { #ssh copy to campus cluster
-    toCopy=${*%${!#}} #all arguments but the last
-    destination=${@:$#} #only the last argument
-    scp -r ${toCopy} ghbrown3@cc-xfer.campuscluster.illinois.edu:${destination}
-    }
-function sshcc { #login to campus cluster
-    ssh ghbrown3@cc-login.campuscluster.illinois.edu
-    }
 function updateconfigs { #updates GitHub with all configuration files (.bashrc, etc.)
     dpkg --get-selections > ~/.applicationNameBackup.txt;\
     \cp -f ~/.applicationNameBackup.txt ${CONFIGURATIONS};\ #call unaliased cp
@@ -193,6 +185,18 @@ export SOLOMONIK=/home/ghbrown/Documents/Research/Solomonik
 export PYTHONMODULES=/home/ghbrown/.local/lib/python3.8/site-packages
 export TOOLS=/home/ghbrown/Tools
 
+#Functions for computation
+function scpcc { #ssh copy to campus cluster
+    toCopy=${*%${!#}} #all arguments but the last
+    destination=${@:$#} #only the last argument
+    scp -r ${toCopy} ghbrown3@cc-xfer.campuscluster.illinois.edu:${destination}
+    }
+function sshcc { #login to campus cluster
+    ssh ghbrown3@cc-login.campuscluster.illinois.edu
+    }
+function runlatte { #call LATTE executable
+	${LATTEDOUBLE} < ${1}
+    }
 #Aliases for computation
 alias pdb2lmp='${TOOLS}/qmd-progress/build/changecoords'
 alias skf2dat='python3 ${LATTE_DIR}/tools/DLtab/DLtab.py'
