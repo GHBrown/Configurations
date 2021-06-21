@@ -122,11 +122,10 @@ shopt -s dotglob #considers files beginning with . in cp and rm etc.
 function cpb { #copy to buffer
     rm -dfr ${CPBUFF}/*
     cp -r "$@" ${CPBUFF}/
-    }
-
+}
 function cpfb { #copy from buffer
     cp -r ${CPBUFF}/* "$1"
-    }
+}
 function huion { #set up buttons for Huion 610P
 	#STYLUS, buttom numbers: 2 (lower), 3 (upper)
 		xsetwacom --set 'HUION Huion Tablet Pen stylus' Button 2 "key +ctrl" #set lower button as color sampler
@@ -141,13 +140,13 @@ function huion { #set up buttons for Huion 610P
 		#xsetwacom --set "HUION Huion Tablet Pad pad" Button 11 "key "
 		#xsetwacom --set "HUION Huion Tablet Pad pad" Button 12 "key "
 	
-    }
+}
 function swap_alt_caps {
     (cd $HOME; xmodmap .swapAlt_CAPSLOCK)
-    }
+}
 function srm {  #safe rm
     mv -f --backup=t "$@" ${RMBUFF}/
-    }
+}
 function updateconfigs { #updates GitHub with all configuration files (.bashrc, etc.)
     dpkg --get-selections > ${CONFIGURATIONS}/.application_name_backup.txt;\
     \cp -f ~/.bashrc ~/.emacs ${CONFIGURATIONS};\
@@ -155,16 +154,12 @@ function updateconfigs { #updates GitHub with all configuration files (.bashrc, 
     (cd ${CONFIGURATIONS};\
     git add .;\
     git commit -m "${@}";\ #pass commit message
-    echo git commit -m "${@}";\ #pass commit message
     git push;\
     )
-    }
-function testargs {
-    echo \"${1}\"
 }
 function zadig { #fix drivers for GameCube controller and Slippi
     sudo rm -f /etc/udev/rules.d/51-gcadapter.rules && sudo touch /etc/udev/rules.d/50-gcadapter.rules && echo 'SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="0337", MODE="0666"' | sudo tee /etc/udev/rules.d/51-gcadapter.rules > /dev/null && sudo udevadm control --reload-rules
-    }
+}
 
 #Standard aliases
 alias sourcebashrc='source ~/.bashrc'
