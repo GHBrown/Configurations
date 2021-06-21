@@ -153,7 +153,7 @@ function updateconfigs { #updates GitHub with all configuration files (.bashrc, 
     \cp -f ~/Documents/Coding/Vimium/vimium-options.json ${CONFIGURATIONS};\
     (cd ${CONFIGURATIONS};\
     git add .;\
-    git commit -m "${@}";\ #pass commit message
+    git commit -m "${@}";\
     git push;\
     )
 }
