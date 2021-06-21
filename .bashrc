@@ -154,11 +154,14 @@ function updateconfigs { #updates GitHub with all configuration files (.bashrc, 
     \cp -f ~/Documents/Coding/Vimium/vimium-options.json ${CONFIGURATIONS};\
     (cd ${CONFIGURATIONS};\
     git add .;\
-    git commit -m ${@};\ #pass commit message
-    echo git commit -m \"${@}\";\ #pass commit message
+    git commit -m "${@}";\ #pass commit message
+    echo git commit -m "${@}";\ #pass commit message
     git push;\
     )
     }
+function testargs {
+    echo \"${1}\"
+}
 function zadig { #fix drivers for GameCube controller and Slippi
     sudo rm -f /etc/udev/rules.d/51-gcadapter.rules && sudo touch /etc/udev/rules.d/50-gcadapter.rules && echo 'SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="0337", MODE="0666"' | sudo tee /etc/udev/rules.d/51-gcadapter.rules > /dev/null && sudo udevadm control --reload-rules
     }
