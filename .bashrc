@@ -149,13 +149,13 @@ function srm {  #safe rm
     mv -f --backup=t "$@" ${RMBUFF}/
     }
 function updateconfigs { #updates GitHub with all configuration files (.bashrc, etc.)
-    dpkg --get-selections > ~/.applicationNameBackup.txt;\
-    \cp -f ~/.applicationNameBackup.txt ${CONFIGURATIONS};\ #call unaliased cp
+    dpkg --get-selections > ${CONFIGURATIONS}/.application_name_backup.txt;\
     \cp -f ~/.bashrc ~/.emacs ${CONFIGURATIONS};\
     \cp -f ~/Documents/Coding/Vimium/vimium-options.json ${CONFIGURATIONS};\
     (cd ${CONFIGURATIONS};\
     git add .;\
-    git commit -m "Scripted update.";\
+    git commit -m ${@};\ #pass commit message
+    echo git commit -m \"${@}\";\ #pass commit message
     git push;\
     )
     }
@@ -190,13 +190,16 @@ function scpcc { #ssh copy to campus cluster
     toCopy=${*%${!#}} #all arguments but the last
     destination=${@:$#} #only the last argument
     scp -r ${toCopy} ghbrown3@cc-xfer.campuscluster.illinois.edu:${destination}
-    }
+}
 function sshcc { #login to campus cluster
     ssh ghbrown3@cc-login.campuscluster.illinois.edu
-    }
-function runlatte { #call LATTE executable
-	${LATTEDOUBLE} < ${1}
-    }
+}
+function lmp_serial { #call LAMMPS executable
+	${LMP_SERIAL} < ${@}
+}
+function latte_double { #call LATTE executable
+	${LATTEDOUBLE} < ${@}
+}
 #Aliases for computation
 alias pdb2lmp='${TOOLS}/qmd-progress/build/changecoords'
 alias skf2dat='python3 ${LATTE_DIR}/tools/DLtab/DLtab.py'
