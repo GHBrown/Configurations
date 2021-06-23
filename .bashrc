@@ -118,7 +118,7 @@ fi
 
 shopt -s dotglob #considers files beginning with . in cp and rm etc.
 
-#Functions
+#Standard functions
 function cpb { #copy to buffer
     rm -dfr ${CPBUFF}/*
     cp -r "$@" ${CPBUFF}/
