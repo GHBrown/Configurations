@@ -147,7 +147,7 @@ alias cls='clear; ls'
 alias cdtools='cd ${TOOLS}'
 alias cdjohnson='cd ${JOHNSON}'
 alias cdsolomonik='cd ${SOLOMONIK}'
-alias emacs='(cd $HOME; xmodmap .swapAlt_CAPSLOCK); emacs -nw'
+alias emacs='(cd $HOME); emacs -nw'
 
 #Standard variables
 export CONFIGURATIONS=/home/ghbrown/Documents/Coding/Configurations
@@ -171,24 +171,8 @@ export LAMMPS_DIR=${TOOLS}/lammps
 export LMP_SERIAL=${LAMMPS_DIR}/src/lmp_serial
 #export LAMMPS_ARCH=g++_mpich_link_mine
 
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/ghbrown/Tools/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/ghbrown/Tools/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/ghbrown/Tools/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/ghbrown/Tools/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
 #set conda environment to my standard
-source activate std
+conda activate std
 
 #clear prompt and provide ls output at top of prompt
 cls
