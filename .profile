@@ -118,10 +118,15 @@ function scpcc { #ssh copy to campus cluster
 function sshcc { #login to campus cluster
     ssh ghbrown3@cc-login.campuscluster.illinois.edu
     }
+function testpac { #test writing of packages with pacman in function
+    pacman -Qqe > ~/.applicationNameBackup.txt;
+    }
 function updateconfigs { #updates GitHub with all configuration files (.bashrc, etc.)
     #dpkg --get-selections > ~/.applicationNameBackup.txt;\ #for Debian system
-    pacman -Qqe > ~/.applicationNameBackup.txt;\ #for Arch system
-    \cp -f ~/.applicationNameBackup.txt ${CONFIGURATIONS};\ #call unaliased cp
+    #for Arch system (below)
+    pacman -Qqe > ~/.applicationNameBackup.txt;\ 
+    #call unaliased cp (below)
+    \cp -f ~/.applicationNameBackup.txt ${CONFIGURATIONS};\
     \cp -f ~/.profile ~/.bashrc ~/.zshrc ~/.emacs ${CONFIGURATIONS};\
     \cp -f ~/Documents/Coding/Vimium/vimium-options.json ${CONFIGURATIONS};\
     (cd ${CONFIGURATIONS};\
