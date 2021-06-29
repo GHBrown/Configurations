@@ -121,8 +121,7 @@ function sshcc { #login to campus cluster
 function updateconfigs { #updates GitHub with all configuration files (.bashrc, etc.)
     #dpkg --get-selections > ~/.applicationNameBackup.txt;\ #for Debian system
     #for Arch system (below)
-    #pacman -Qqe > ~/.applicationNameBackup.txt;\ 
-    pacman -Qqe > ~/.confusion.txt;\ 
+    pacman -Qqe > ~/.applicationNameBackup.txt;\ 
     #call unaliased cp (below)
     \cp -f ~/.applicationNameBackup.txt ${CONFIGURATIONS};\
     \cp -f ~/.profile ~/.bashrc ~/.zshrc ~/.emacs ${CONFIGURATIONS};\
