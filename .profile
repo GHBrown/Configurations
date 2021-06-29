@@ -120,7 +120,7 @@ function sshcc { #login to campus cluster
     }
 function updateconfigs { #updates GitHub with all configuration files (.bashrc, etc.)
     #dpkg --get-selections > ~/.applicationNameBackup.txt;\ #for Debian system
-    pacman -Qpe > ~/.applicationNameBackup.text;\ #for Arch system
+    pacman -Qpe > ~/.applicationNameBackup.txt;\ #for Arch system
     \cp -f ~/.applicationNameBackup.txt ${CONFIGURATIONS};\ #call unaliased cp
     \cp -f ~/.profile ~/.bashrc ~/.zshrc ~/.emacs ${CONFIGURATIONS};\
     \cp -f ~/Documents/Coding/Vimium/vimium-options.json ${CONFIGURATIONS};\
