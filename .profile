@@ -121,11 +121,15 @@ function sshcc { #login to campus cluster
 function updateconfigs { #updates GitHub with all configuration files (.bashrc, etc.)
     #dpkg --get-selections > ~/.applicationNameBackup.txt;\ #for Debian system
     #for Arch system (below)
-    pacman -Qqe > ~/.applicationNameBackup.txt;\ 
+    pacman -Qqe > ${CONFIGURATIONS}/.application_name_backup.txt
     #call unaliased cp (below)
-    \cp -f ~/.applicationNameBackup.txt ${CONFIGURATIONS};\
-    \cp -f ~/.profile ~/.bashrc ~/.zshrc ~/.emacs ${CONFIGURATIONS};\
-    \cp -f ~/Documents/Coding/Vimium/vimium-options.json ${CONFIGURATIONS};\
+    \cp -f ~/.profile ~/.bashrc ~/.zshrc ~/.emacs ${CONFIGURATIONS}
+    \cp -f ~/Documents/Coding/Vimium/vimium-options.json ${CONFIGURATIONS}
+    #backup conda environments as .yml files
+    (cd ${CONFIGURATIONS};\
+    python3 backup_conda_envs.py;\
+    )
+    #update remote repository
     (cd ${CONFIGURATIONS};\
     git add .;\
     git commit -m "${@}";\
@@ -150,6 +154,7 @@ alias cdsolomonik='cd ${SOLOMONIK}'
 alias emacs='(cd $HOME); emacs -nw'
 
 #Standard variables
+export CONDA=${TOOLS}/anaconda3
 export CONFIGURATIONS=/home/ghbrown/Documents/Coding/Configurations
 export CPBUFF=/home/ghbrown/Temporary/cpbuffer
 export RMBUFF=/home/ghbrown/Temporary/rmbuffer
