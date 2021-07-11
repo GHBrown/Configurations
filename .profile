@@ -136,9 +136,17 @@ function updateconfigs { #updates GitHub with all configuration files (.bashrc, 
     git push;\
     )
     }
-function zadig { #fix drivers for GameCube controller and Slippi
-    sudo rm -f /etc/udev/rules.d/51-gcadapter.rules && sudo touch /etc/udev/rules.d/50-gcadapter.rules && echo 'SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="0337", MODE="0666"' | sudo tee /etc/udev/rules.d/51-gcadapter.rules > /dev/null && sudo udevadm control --reload-rules
+function usb_gc_controller { #allow GameCube controller to work as USB controller
+    #execute program
+    sudo ~/Documents/Games/Emulation/Controllers/wii-u-gc-adapter/wii-u-gc-adapter
     }
+function slippi_controller { #fix drivers for GameCube controller and Slippi
+    sudo rm -f /etc/udev/rules.d/51-gcadapter.rules && sudo touch /etc/udev/rules.d/50-gcadapter.rules && echo 'SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="0337", MODE="0666"' | sudo tee /etc/udev/rules.d/51-gcadapter.rules > /dev/null && sudo udevadm control --reload-rules
+    sudo systemctl restart udev.service
+    }
+
+#Configuration variables
+#perhaps some X11/Wayland stuff to get rid of annoying Qt/conda/matplotlib error
 
 #Standard aliases
 alias sourceprofile='source ~/.profile'

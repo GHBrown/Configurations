@@ -54,6 +54,7 @@ file
 file-roller
 filesystem
 findutils
+firefox
 flameshot
 flex
 fprintd
@@ -221,6 +222,7 @@ pamac-snap-plugin
 papirus-maia-icon-theme
 patch
 pciutils
+pcsx2
 perl
 pkgconf
 plymouth-theme-manjaro
