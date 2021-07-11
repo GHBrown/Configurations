@@ -168,7 +168,7 @@ export CPBUFF=/home/ghbrown/Temporary/cpbuffer
 export RMBUFF=/home/ghbrown/Temporary/rmbuffer
 export JOHNSON=/home/ghbrown/Documents/Research/Johnson
 export SOLOMONIK=/home/ghbrown/Documents/Research/Solomonik
-export PYTHONMODULES=/home/ghbrown/.local/lib/python3.8/site-packages
+export PYTHONMODULESSTD=/home/ghbrown/Tools/anaconda3/envs/std/lib/python3.9/site-packages #these modules are internal to the std conda environment
 export TOOLS=/home/ghbrown/Tools
 
 #Aliases for computation
