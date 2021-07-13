@@ -3,7 +3,7 @@ acpid
 adobe-source-han-sans-cn-fonts
 adobe-source-han-sans-jp-fonts
 adobe-source-han-sans-kr-fonts
-adobe-source-sans-pro-fonts
+adobe-source-sans-fonts
 adwaita-icon-theme
 adwaita-maia
 alacarte
@@ -142,6 +142,8 @@ lib32-vulkan-intel
 lib32-vulkan-radeon
 libappindicator-gtk3
 libdvdcss
+libpamac-flatpak-plugin
+libpamac-snap-plugin
 libreoffice-fresh
 libva-mesa-driver
 libva-vdpau-driver
@@ -215,10 +217,8 @@ os-prober
 p7zip
 pacman
 pacui
-pamac-flatpak-plugin
 pamac-gnome-integration
 pamac-gtk
-pamac-snap-plugin
 papirus-maia-icon-theme
 patch
 pciutils

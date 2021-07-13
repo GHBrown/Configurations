@@ -136,6 +136,10 @@ function updateconfigs { #updates GitHub with all configuration files (.bashrc, 
     git push;\
     )
     }
+function updatesystem { #sync repositories and update, only for Arch based systems
+    sudo pacman -Syy
+    sudo pacman -Syu
+    }
 function usb_gc_controller { #allow GameCube controller to work as USB controller
     #execute program
     sudo ~/Documents/Games/Emulation/Controllers/wii-u-gc-adapter/wii-u-gc-adapter
